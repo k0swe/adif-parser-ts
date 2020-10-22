@@ -1,11 +1,8 @@
 import AdifParser from "../src/adif-parser-ts"
 
-describe("AdifParser test", () => {
-  it("works if true is truthy", () => {
-    expect(true).toBeTruthy()
-  })
+describe("AdifParser", () => {
 
-  it("should parse a basic ADI", () => {
+  it("can parse a basic ADI", () => {
     expect(AdifParser.parseAdi(`<CALL:6>J72IMS <QSO_DATE:8>20200328 <eor>
 <CALL:4>KK9A <QSO_DATE:8>20200329 <eor>`))
       .toEqual({
@@ -19,5 +16,10 @@ describe("AdifParser test", () => {
           }
         ]
       });
-  })
-})
+  });
+
+  it("can throw for fields with no width", () => {
+    expect(() => AdifParser.parseAdi(`<CALL:6>J72IMS <QSO_DATE>20200328`))
+      .toThrowError("Encountered field tag without enough parts near char 15");
+  });
+});

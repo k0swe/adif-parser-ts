@@ -41,7 +41,7 @@ export default class AdifParser {
       this.cursor = endTag + 1;
       return true;
     } else if (tagParts.length < 2) {
-      throw new Error();
+      throw new Error("Encountered field tag without enough parts near char " + startTag);
     }
     const fieldName = tagParts[0].toLowerCase();
     const width = +tagParts[1];
