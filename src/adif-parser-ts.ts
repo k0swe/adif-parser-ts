@@ -1,14 +1,11 @@
 export default class AdifParser {
-
   static parseAdi(adi: string): object {
     return new AdifParser(adi).parseTopLevel();
   }
 
   private cursor = 0;
 
-  private constructor(private readonly adi: string) {
-  }
-
+  private constructor(private readonly adi: string) {}
 
   private parseTopLevel(): object {
     const parsed: { [key: string]: any } = {};
@@ -18,7 +15,7 @@ export default class AdifParser {
     while (this.cursor < this.adi.length) {
       records.push(this.parseRecord());
     }
-    parsed["records"] = records;
+    parsed['records'] = records;
     return parsed;
   }
 
@@ -36,12 +33,17 @@ export default class AdifParser {
   private parseTagValue(record: { [p: string]: string }): boolean {
     const startTag = this.adi.indexOf('<', this.cursor);
     const endTag = this.adi.indexOf('>', startTag);
-    const tagParts = this.adi.substring(startTag + 1, endTag).split(":");
-    if (tagParts[0].toLowerCase() === 'eor' || tagParts[0].toLowerCase() === 'eoh') {
+    const tagParts = this.adi.substring(startTag + 1, endTag).split(':');
+    if (
+      tagParts[0].toLowerCase() === 'eor' ||
+      tagParts[0].toLowerCase() === 'eoh'
+    ) {
       this.cursor = endTag + 1;
       return true;
     } else if (tagParts.length < 2) {
-      throw new Error("Encountered field tag without enough parts near char " + startTag);
+      throw new Error(
+        'Encountered field tag without enough parts near char ' + startTag
+      );
     }
     const fieldName = tagParts[0].toLowerCase();
     const width = +tagParts[1];
