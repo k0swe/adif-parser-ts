@@ -10,7 +10,7 @@ export default class AdifParser {
   }
 
 
-  parseTopLevel(): object {
+  private parseTopLevel(): object {
     const parsed: { [key: string]: any } = {};
     // TODO: Header
     // QSO Records
