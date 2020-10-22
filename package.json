@@ -1,8 +1,14 @@
 {
   "name": "adif-parser-ts",
   "version": "0.0.0",
-  "description": "",
-  "keywords": [],
+  "description": "An amateur radio log data ADIF parser in Typescript and Javascript",
+  "keywords": [
+    "amateur radio",
+    "ham radio",
+    "adif",
+    "log",
+    "parser"
+  ],
   "main": "dist/adif-parser-ts.umd.js",
   "module": "dist/adif-parser-ts.es5.js",
   "typings": "dist/types/adif-parser-ts.d.ts",
@@ -12,9 +18,9 @@
   "author": "Chris Keller <xylo04@gmail.com>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/k0swe/adif-parser-ts"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "engines": {
     "node": ">=6.0.0"
   },
