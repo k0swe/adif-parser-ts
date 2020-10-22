@@ -1,5 +1,5 @@
-const { cd, exec, echo, touch } = require("shelljs")
-const { readFileSync } = require("fs")
+const {cd, exec, echo, touch} = require("shelljs")
+const {readFileSync} = require("fs")
 const url = require("url")
 
 let repoUrl
@@ -26,6 +26,6 @@ exec('git config user.name "Chris Keller"')
 exec('git config user.email "xylo04@gmail.com"')
 exec('git commit -m "docs(docs): update gh-pages"')
 exec(
-  `git push --force --quiet "https://${ghToken}@${repository}" master:gh-pages`
+  `git push --force --quiet "https://${ghToken}@${repository}" main:gh-pages`
 )
 echo("Docs deployed!!")
