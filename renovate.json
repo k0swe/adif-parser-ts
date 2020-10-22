@@ -14,7 +14,5 @@
     "group:recommended",
     "helpers:disableTypesNodeMajor"
   ],
-  "schedule": [
-    "before 6am"
-  ]
+  "schedule": ["before 6am"]
 }
