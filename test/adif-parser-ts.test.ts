@@ -22,4 +22,16 @@ describe("AdifParser", () => {
     expect(() => AdifParser.parseAdi(`<CALL:6>J72IMS <QSO_DATE>20200328`))
       .toThrowError("Encountered field tag without enough parts near char 15");
   });
+
+  it("can ignore type indicators", () => {
+    expect(AdifParser.parseAdi(`<CALL:6:s>J72IMS <QSO_DATE:8:d>20200328`))
+      .toEqual({
+        "records": [
+          {
+            "call": "J72IMS",
+            "qso_date": "20200328"
+          },
+        ]
+      });
+  });
 });
