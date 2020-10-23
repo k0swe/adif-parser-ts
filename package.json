@@ -1,6 +1,6 @@
 {
   "name": "adif-parser-ts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An amateur radio log data ADIF parser in Typescript and Javascript",
   "keywords": [
     "amateur radio",
@@ -31,7 +31,9 @@
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "test:prod": "npm run lint && npm run test -- --no-cache",
-    "report-coverage": "cat ./coverage/lcov.info | coveralls"
+    "report-coverage": "cat ./coverage/lcov.info | coveralls",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "jest": {
     "transform": {
