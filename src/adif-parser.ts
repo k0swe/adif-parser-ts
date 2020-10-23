@@ -1,4 +1,10 @@
+/**
+ * A class for parsing ADIF data into usable data structures.
+ */
 export default class AdifParser {
+  /**
+   * Parse the given ADIF data string into an object.
+   */
   static parseAdi(adi: string): object {
     return new AdifParser(adi).parseTopLevel();
   }
