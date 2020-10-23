@@ -1,4 +1,4 @@
-import AdifParser from '../src/adif-parser';
+import { AdifParser } from '../src/adif-parser';
 import * as fs from 'fs';
 
 describe('AdifParser', () => {
