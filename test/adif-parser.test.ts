@@ -57,11 +57,8 @@ describe('AdifParser', () => {
 
   it('can parse degenerate examples', () => {
     expect(AdifParser.parseAdi(``)).toEqual({});
-    expect(AdifParser.parseAdi(`<eor>`)).toEqual({ records: [] });
-    expect(AdifParser.parseAdi(` <eoh>`)).toEqual({
-      header: { text: '' },
-      records: [],
-    });
+    expect(AdifParser.parseAdi(`<eor>`)).toEqual({});
+    expect(AdifParser.parseAdi(` <eoh>`)).toEqual({ header: { text: '' } });
   });
 
   it('can throw for fields with no width', () => {

@@ -40,7 +40,9 @@ export default class AdifParser {
         records.push(record);
       }
     }
-    parsed.records = records;
+    if (records.length > 0) {
+      parsed.records = records;
+    }
     return parsed;
   }
 
