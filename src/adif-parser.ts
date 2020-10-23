@@ -5,7 +5,7 @@ export default class AdifParser {
   /**
    * Parse the given ADIF data string into an object.
    */
-  static parseAdi(adi: string): object {
+  static parseAdi(adi: string): ParseResult {
     return new AdifParser(adi).parseTopLevel();
   }
 
@@ -13,8 +13,8 @@ export default class AdifParser {
 
   private constructor(private readonly adi: string) {}
 
-  private parseTopLevel(): object {
-    const parsed: { [key: string]: any } = {};
+  private parseTopLevel(): ParseResult {
+    const parsed: ParseResult = {};
     if (this.adi.length === 0) {
       return parsed;
     }
@@ -29,18 +29,18 @@ export default class AdifParser {
           break;
         }
       }
-      parsed['header'] = header;
+      parsed.header = header;
     }
 
     // QSO Records
-    const records = new Array<object>();
+    const records = new Array<{ [field: string]: string }>();
     while (this.cursor < this.adi.length) {
       const record = this.parseRecord();
       if (Object.keys(record).length > 0) {
         records.push(record);
       }
     }
-    parsed['records'] = records;
+    parsed.records = records;
     return parsed;
   }
 
@@ -86,4 +86,9 @@ export default class AdifParser {
     this.cursor = endTag + 1 + width;
     return false;
   }
+}
+
+export interface ParseResult {
+  header?: { [field: string]: string };
+  records?: Array<{ [field: string]: string }>;
 }
