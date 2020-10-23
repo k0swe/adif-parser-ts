@@ -67,7 +67,7 @@
     "@types/jest": "26.0.15",
     "@types/node": "10.17.42",
     "coveralls": "3.1.0",
-    "cross-env": "5.2.1",
+    "cross-env": "7.0.2",
     "husky": "5.0.0-beta.0",
     "jest": "26.6.0",
     "jest-config": "26.6.0",
