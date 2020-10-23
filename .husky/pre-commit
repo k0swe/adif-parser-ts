@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname $0)/_/husky.sh"
+
+STAGED=`git diff --name-only --staged`
+prettier --write {src,test}/**/*.ts
+git add $STAGED

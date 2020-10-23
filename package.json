@@ -33,12 +33,6 @@
     "test:prod": "npm run lint && npm run test -- --no-cache",
     "report-coverage": "cat ./coverage/lcov.info | coveralls"
   },
-  "lint-staged": {
-    "{src,test}/**/*.ts": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "jest": {
     "transform": {
       ".(ts|tsx)": "ts-jest"
@@ -94,10 +88,5 @@
     "tslint-config-standard": "8.0.1",
     "typedoc": "0.19.2",
     "typescript": "3.9.7"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
