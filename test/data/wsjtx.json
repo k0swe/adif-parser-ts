@@ -1,0 +1,23 @@
+{
+  "header": {
+    "text": "WSJT-X ADIF Export"
+  },
+  "records": [
+    {
+      "band": "40m",
+      "call": "KA9FOX",
+      "freq": "7.076150",
+      "gridsquare": "EN43",
+      "mode": "FT8",
+      "my_gridsquare": "DM79LV",
+      "qso_date": "20201023",
+      "qso_date_off": "20201023",
+      "rst_rcvd": "-13",
+      "rst_sent": "-07",
+      "station_callsign": "K0SWE",
+      "time_off": "154615",
+      "time_on": "154515",
+      "tx_pwr": "50"
+    }
+  ]
+}

@@ -49,7 +49,7 @@ export default class AdifParser {
   private parseHeaderText(): string {
     const startTag = this.adi.indexOf('<', this.cursor);
     this.cursor = startTag;
-    return this.adi.substring(0, startTag - 1).trim();
+    return this.adi.substring(0, startTag).trim();
   }
 
   private parseRecord(): { [field: string]: string } {

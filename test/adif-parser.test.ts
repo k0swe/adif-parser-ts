@@ -89,4 +89,34 @@ describe('AdifParser', () => {
     });
     expect(AdifParser.parseAdi(fileContent)).toEqual(JSON.parse(expected));
   });
+
+  it('can parse an ADI from QRZ.com', () => {
+    const fileContent = fs.readFileSync('test/data/qrz.adi', {
+      encoding: 'ascii',
+    });
+    const expected = fs.readFileSync('test/data/qrz.json', {
+      encoding: 'utf8',
+    });
+    expect(AdifParser.parseAdi(fileContent)).toEqual(JSON.parse(expected));
+  });
+
+  it('can parse an ADI from WSJT-X', () => {
+    const fileContent = fs.readFileSync('test/data/wsjtx.adi', {
+      encoding: 'ascii',
+    });
+    const expected = fs.readFileSync('test/data/wsjtx.json', {
+      encoding: 'utf8',
+    });
+    expect(AdifParser.parseAdi(fileContent)).toEqual(JSON.parse(expected));
+  });
+
+  it('can parse an ADI from JS8Call', () => {
+    const fileContent = fs.readFileSync('test/data/js8call.adi', {
+      encoding: 'ascii',
+    });
+    const expected = fs.readFileSync('test/data/js8call.json', {
+      encoding: 'utf8',
+    });
+    expect(AdifParser.parseAdi(fileContent)).toEqual(JSON.parse(expected));
+  });
 });

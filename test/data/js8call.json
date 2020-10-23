@@ -1,0 +1,25 @@
+{
+  "header": {
+    "text": "JS8Call ADIF Export"
+  },
+  "records": [
+    {
+      "band": "40m",
+      "call": "VE4DL",
+      "freq": "7.079439",
+      "gridsquare": "",
+      "mode": "MFSK",
+      "my_gridsquare": "DM79LV",
+      "name": "Dave",
+      "operator": "K0SWE",
+      "qso_date": "20201005",
+      "qso_date_off": "20201005",
+      "rst_rcvd": "",
+      "rst_sent": "-15",
+      "station_callsign": "K0SWE",
+      "submode": "JS8",
+      "time_off": "010043",
+      "time_on": "004927"
+    }
+  ]
+}
