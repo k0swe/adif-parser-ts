@@ -1,0 +1,32 @@
+{
+  "header": {
+    "adif_ver": "3.0.5",
+    "programid": "monolog",
+    "text": "Generated on 2011-11-22 at 02:15:23Z for WN4AZY",
+    "userdef1": "EPC",
+    "userdef2": "SweaterSize,{S,M,L}",
+    "userdef3": "ShoeSize,{5:20}"
+  },
+  "records": [
+    {
+      "app_monolog_compression": "off",
+      "band": "20M",
+      "call": "VK9NS",
+      "mode": "RTTY",
+      "qso_date": "19900620",
+      "shoesize": "11",
+      "sweatersize": "M",
+      "time_on": "1523"
+    },
+    {
+      "app_monolog_compression": "off",
+      "band": "40M",
+      "call": "ON4UN",
+      "epc": "32123",
+      "mode": "PSK",
+      "qso_date": "20101022",
+      "submode": "PSK63",
+      "time_on": "0111"
+    }
+  ]
+}

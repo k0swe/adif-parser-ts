@@ -32,7 +32,10 @@ export default class AdifParser {
     // QSO Records
     const records = new Array<object>();
     while (this.cursor < this.adi.length) {
-      records.push(this.parseRecord());
+      const record = this.parseRecord();
+      if (Object.keys(record).length > 0) {
+        records.push(record);
+      }
     }
     parsed['records'] = records;
     return parsed;
@@ -57,6 +60,10 @@ export default class AdifParser {
 
   private parseTagValue(record: { [p: string]: string }): boolean {
     const startTag = this.adi.indexOf('<', this.cursor);
+    if (startTag === -1) {
+      this.cursor = this.adi.length;
+      return true;
+    }
     const endTag = this.adi.indexOf('>', startTag);
     const tagParts = this.adi.substring(startTag + 1, endTag).split(':');
     if (

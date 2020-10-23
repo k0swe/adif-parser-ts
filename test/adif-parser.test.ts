@@ -1,4 +1,5 @@
 import AdifParser from '../src/adif-parser';
+import * as fs from 'fs';
 
 describe('AdifParser', () => {
   it('can parse a basic ADI', () => {
@@ -71,5 +72,15 @@ describe('AdifParser', () => {
         },
       ],
     });
+  });
+
+  it('can parse the ADI sample from the ADIF spec', () => {
+    const fileContent = fs.readFileSync('test/data/spec-sample.adi', {
+      encoding: 'ascii',
+    });
+    const expected = fs.readFileSync('test/data/spec-sample.json', {
+      encoding: 'utf8',
+    });
+    expect(AdifParser.parseAdi(fileContent)).toEqual(JSON.parse(expected));
   });
 });
