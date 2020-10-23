@@ -15,6 +15,9 @@ export default class AdifParser {
 
   private parseTopLevel(): object {
     const parsed: { [key: string]: any } = {};
+    if (this.adi.length === 0) {
+      return parsed;
+    }
 
     // Header
     if (this.adi[0] !== '<') {

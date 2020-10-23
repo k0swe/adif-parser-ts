@@ -55,6 +55,15 @@ describe('AdifParser', () => {
     });
   });
 
+  it('can parse degenerate examples', () => {
+    expect(AdifParser.parseAdi(``)).toEqual({});
+    expect(AdifParser.parseAdi(`<eor>`)).toEqual({ records: [] });
+    expect(AdifParser.parseAdi(` <eoh>`)).toEqual({
+      header: { text: '' },
+      records: [],
+    });
+  });
+
   it('can throw for fields with no width', () => {
     expect(() =>
       AdifParser.parseAdi(`<CALL:6>J72IMS <QSO_DATE>20200328`)
