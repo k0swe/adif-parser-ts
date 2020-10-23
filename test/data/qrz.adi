@@ -1,0 +1,165 @@
+QRZLogbook download for k0swe
+    Date: Tue Oct 20 02:15:17 2020
+    Bookid: 230915
+    Records: 440
+    <ADIF_VER:5>3.0.4
+    <PROGRAMID:10>QRZLogbook
+    <PROGRAMVERSION:3>2.0
+    <eoh>
+<app_qrzlog_logid:9>488692380
+<app_qrzlog_qsldate:8>20200406
+<app_qrzlog_status:1>C
+<band:3>20m
+<band_rx:3>20m
+<call:4>KK9A
+<cnty:12>NC, Cabarrus
+<cont:2>NA
+<contest_id:10>CQ-WPX-SSB
+<country:13>United States
+<cqz:1>5
+<distance:4>2217
+<dxcc:3>291
+<email:13>john@kk9a.com
+<eqsl_qsl_rcvd:1>N
+<eqsl_qsl_sent:1>N
+<freq:6>14.282
+<freq_rx:6>14.282
+<gridsquare:6>EM95re
+<lat:11>N035 12.004
+<lon:11>W080 31.464
+<lotw_qsl_rcvd:1>Y
+<lotw_qsl_sent:1>Y
+<lotw_qslrdate:8>20200402
+<lotw_qslsdate:8>20200406
+<mode:3>SSB
+<my_city:11>Westminster
+<my_cnty:13>CO, Jefferson
+<my_country:13>United States
+<my_cq_zone:1>4
+<my_gridsquare:6>DM79lv
+<my_itu_zone:1>7
+<my_lat:11>N039 54.615
+<my_lon:11>W105 03.416
+<my_name:20>Christopher C Keller
+<my_state:2>CO
+<name:12>JOHN P BAYNE
+<qrzcom_qso_upload_date:8>20200329
+<qrzcom_qso_upload_status:1>Y
+<qsl_rcvd:1>N
+<qsl_sent:1>N
+<qsl_via:6>WD9DZV
+<qso_date:8>20200329
+<qso_date_off:8>20200329
+<qth:7>MIDLAND
+<rst_rcvd:2>59
+<rst_sent:2>59
+<srx:4>1592
+<state:2>NC
+<station_callsign:5>K0SWE
+<stx:1>1
+<time_off:4>0034
+<time_on:4>0034
+<tx_pwr:3>100
+<eor>
+
+<app_qrzlog_logid:9>491251579
+<app_qrzlog_qsldate:8>20200406
+<app_qrzlog_status:1>C
+<band:3>40m
+<band_rx:3>40m
+<call:4>K9IJ
+<cnty:8>IL, Lake
+<cont:2>NA
+<country:13>United States
+<cqz:1>4
+<distance:4>1441
+<dxcc:3>291
+<email:13>k9ij@arrl.net
+<eqsl_qsl_rcvd:1>N
+<eqsl_qsl_sent:1>N
+<freq:7>7.07595
+<freq_rx:7>7.07595
+<gridsquare:4>EN52
+<ituz:1>8
+<lat:11>N042 12.675
+<lon:11>W088 06.508
+<lotw_qsl_rcvd:1>Y
+<lotw_qsl_sent:1>Y
+<lotw_qslrdate:8>20200406
+<lotw_qslsdate:8>20200406
+<mode:3>FT8
+<my_city:11>Westminster
+<my_cnty:13>CO, Jefferson
+<my_country:13>United States
+<my_cq_zone:1>4
+<my_gridsquare:4>DM79
+<my_itu_zone:1>7
+<my_lat:11>N039 54.615
+<my_lon:11>W105 03.416
+<my_name:20>Christopher C Keller
+<my_state:2>CO
+<name:11>JOHN F RICE
+<operator:5>K0SWE
+<qrzcom_qso_upload_date:8>20200403
+<qrzcom_qso_upload_status:1>Y
+<qsl_rcvd:1>N
+<qsl_sent:1>N
+<qsl_via:29>Replies to direct cards, LOTW
+<qso_date:8>20200403
+<qso_date_off:8>20200403
+<qth:11>LAKE ZURICH
+<rst_rcvd:3>-21
+<rst_sent:3>-03
+<state:2>IL
+<station_callsign:5>K0SWE
+<time_off:4>0340
+<time_on:4>0338
+<tx_pwr:2>10
+<eor>
+
+<app_qrzlog_logid:9>522462193
+<app_qrzlog_status:1>N
+<band:3>40m
+<band_rx:3>40m
+<call:6>WD9DUI
+<cnty:15>CA, Los Angeles
+<cont:2>NA
+<country:13>United States
+<distance:4>1357
+<dxcc:3>291
+<email:21>wd9dui@roadrunner.com
+<eqsl_qsl_rcvd:1>N
+<eqsl_qsl_sent:1>N
+<freq:4>7.08
+<freq_rx:4>7.08
+<gridsquare:6>DM03ut
+<lat:11>N033 49.569
+<lon:11>W118 18.853
+<lotw_qsl_rcvd:1>N
+<lotw_qsl_sent:1>Y
+<lotw_qslsdate:8>20200726
+<mode:4>MFSK
+<my_city:11>Westminster
+<my_cnty:13>CO, Jefferson
+<my_country:13>United States
+<my_cq_zone:1>4
+<my_gridsquare:8>DM79LV38
+<my_itu_zone:1>7
+<my_lat:11>N039 54.615
+<my_lon:11>W105 03.416
+<my_name:20>Christopher C Keller
+<my_state:2>CO
+<name:17>GARY J LESNIEWSKI
+<qrzcom_qso_upload_date:8>20200619
+<qrzcom_qso_upload_status:1>Y
+<qsl_rcvd:1>N
+<qsl_sent:1>N
+<qso_date:8>20200607
+<qso_date_off:8>20200607
+<qth:8>TORRANCE
+<state:2>CA
+<station_callsign:5>K0SWE
+<submode:3>JS8
+<time_off:4>0205
+<time_on:4>0205
+<eor>
