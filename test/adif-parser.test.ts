@@ -1,4 +1,4 @@
-import AdifParser from '../src/adif-parser-ts';
+import AdifParser from '../src/adif-parser';
 
 describe('AdifParser', () => {
   it('can parse a basic ADI', () => {

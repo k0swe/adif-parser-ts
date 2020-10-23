@@ -7,7 +7,7 @@ import json from 'rollup-plugin-json';
 
 const pkg = require('./package.json');
 
-const libraryName = 'adif-parser-ts';
+const libraryName = 'adif-parser';
 
 export default {
   input: `src/${libraryName}.ts`,

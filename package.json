@@ -9,9 +9,9 @@
     "log",
     "parser"
   ],
-  "main": "dist/adif-parser-ts.umd.js",
-  "module": "dist/adif-parser-ts.es5.js",
-  "typings": "dist/types/adif-parser-ts.d.ts",
+  "main": "dist/adif-parser.umd.js",
+  "module": "dist/adif-parser.es5.js",
+  "typings": "dist/types/adif-parser.d.ts",
   "files": [
     "dist"
   ],
