@@ -1,7 +1,7 @@
 /**
  * A class for parsing ADIF data into usable data structures.
  */
-export default class AdifParser {
+export class AdifParser {
   /**
    * Parse the given ADIF data string into an object.
    */
