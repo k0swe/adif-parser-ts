@@ -14,5 +14,6 @@
     "group:recommended",
     "helpers:disableTypesNodeMajor"
   ],
-  "schedule": ["before 6am"]
+  "schedule": ["after 3am and before 7am"],
+  "timezone": "America/Denver"
 }
