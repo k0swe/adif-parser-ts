@@ -1,8 +1,7 @@
-import { AdifParser } from '../src/adif-parser';
 import * as fs from 'fs';
 import { AdifFormatter } from '../src/adif-formatter';
 
-describe('AdifParser', () => {
+describe('AdifFormatter', () => {
   it('can format a basic ADI', () => {
     expect(
       AdifFormatter.formatAdi({
@@ -17,8 +16,14 @@ describe('AdifParser', () => {
           },
         ],
       })
-    ).toEqual(`<CALL:6>J72IMS <QSO_DATE:8>20200328 <eor>
-<CALL:4>KK9A <QSO_DATE:8>20200329 <eor>`);
+    ).toEqual(`<call:6>J72IMS
+<qso_date:8>20200328
+<eor>
+
+<call:4>KK9A
+<qso_date:8>20200329
+<eor>
+`);
   });
 
   it('can format a basic ADI with a header', () => {
@@ -44,22 +49,29 @@ describe('AdifParser', () => {
         ],
       })
     ).toEqual(`Generated on 2011-11-22 at 02:15:23Z for WN4AZY
-
 <adif_ver:5>3.0.5
 <programid:7>MonoLog
-<USERDEF1:8:N>QRP_ARCI
-<USERDEF2:19:E>SweaterSize,{S,M,L}
+<userdef1:8>QRP_ARCI
+<userdef2:19>SweaterSize,{S,M,L}
+<userdef3:15>ShoeSize,{5:20}
+<eoh>
 
-<USERDEF3:15>ShoeSize,{5:20}
-<EOH>
-<CALL:6>J72IMS <QSO_DATE:8>20200328 <eor>
-<CALL:4>KK9A <QSO_DATE:8>20200329 <eor>`);
+<call:6>J72IMS
+<qso_date:8>20200328
+<eor>
+
+<call:4>KK9A
+<qso_date:8>20200329
+<eor>
+`);
   });
 
   it('can format degenerate examples', () => {
-    expect(AdifFormatter.formatAdi({})).toEqual(``);
-    expect(AdifFormatter.formatAdi({})).toEqual(`<eor>`);
-    expect(AdifFormatter.formatAdi({ header: { text: '' } })).toEqual(` <eoh>`);
+    expect(AdifFormatter.formatAdi({})).toEqual('');
+    expect(AdifFormatter.formatAdi({ records: [] })).toEqual('');
+    expect(AdifFormatter.formatAdi({ header: { text: '' } })).toEqual(
+      '<eoh>\n'
+    );
   });
 
   it('can round-trip the ADI sample from the ADIF spec', () => {
