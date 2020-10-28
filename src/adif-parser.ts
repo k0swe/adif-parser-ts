@@ -137,7 +137,7 @@ export class AdifFormatter {
   private static formatTags(obj: object): string {
     let buffer = '';
     for (const [key, value] of Object.entries(obj)) {
-      const width = Buffer.byteLength(value);
+      const width = new TextEncoder().encode(value).byteLength;
       buffer += `<${key}:${width}>${value}\n`;
     }
     return buffer;
