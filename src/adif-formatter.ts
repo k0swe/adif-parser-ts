@@ -1,11 +1,11 @@
 import { SimpleAdif } from './simple-adif';
 
 /**
- * A class for parsing ADIF data into usable data structures.
+ * A class for formatting objects into ADIF.
  */
 export class AdifFormatter {
   /**
-   * Parse the given ADIF data string into an object.
+   * Format the given object into an ADIF string.
    */
   static formatAdi(obj: SimpleAdif): string {
     return new AdifFormatter(obj).format();
