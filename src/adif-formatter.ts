@@ -7,7 +7,7 @@ export class AdifFormatter {
   /**
    * Parse the given ADIF data string into an object.
    */
-  static parseAdi(obj: SimpleAdif): string {
+  static formatAdi(obj: SimpleAdif): string {
     return new AdifFormatter(obj).format();
   }
 
