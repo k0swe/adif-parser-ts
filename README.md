@@ -1,4 +1,4 @@
-![Test](https://github.com/k0swe/adif-parser-ts/workflows/Test/badge.svg)
+![Test](https://github.com/k0swe/adif-parser-ts/workflows/Test/badge.svg?branch=main)
 
 # ADIF parser for TypeScript
 
