@@ -8,11 +8,10 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
-      - env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
 
