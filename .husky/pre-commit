@@ -5,7 +5,3 @@
 STAGED=`git diff --name-only --staged`
 prettier --write {src,test}/**/*.ts
 git add $STAGED
-
-# Make sure docs are current
-npm run build
-git add docs/
