@@ -12,6 +12,9 @@ jobs:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
+      - name: Expose extra env vars
+        uses: FranzDiebold/github-env-vars-action@v1.2.1
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
 
@@ -25,4 +28,4 @@ jobs:
           npm run build
 
       - name: Publish
-        run: npm publish
+        run: npm publish ${{GITHUB_REPOSITORY_NAME}}@${{ GITHUB_REF_NAME }}
