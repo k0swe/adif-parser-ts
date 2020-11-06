@@ -1,29 +1,29 @@
-name: Test
+name: Publish
 
 on:
   push:
-    branches:
-      - '*'
-    tags-ignore:
+    tags:
       - 'v*'
-  pull_request:
-    branches:
-      - '*'
 
 jobs:
-  test:
-    # The type of runner that the job will run on
+  publish:
     runs-on: ubuntu-latest
 
     steps:
+      - env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
 
       - name: Checkout
         uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Test
+      - name: Test & Build
         run: |
           npm install
           npm run test:prod
+          npm run build
+
+      - name: Publish
+        run: npm publish
