@@ -28,4 +28,4 @@ jobs:
           npm run build
 
       - name: Publish
-        run: npm publish "${GITHUB_REPOSITORY_NAME}@${GITHUB_REF_NAME}"
+        run: npm publish --tag "${GITHUB_REPOSITORY_NAME}@${GITHUB_REF_NAME}"
