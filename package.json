@@ -75,7 +75,7 @@
     "jest-config": "26.6.3",
     "lint-staged": "10.5.1",
     "lodash.camelcase": "4.3.0",
-    "pinst": "2.0.0",
+    "pinst": "2.1.1",
     "prettier": "2.1.2",
     "rollup": "2.33.1",
     "rollup-plugin-commonjs": "10.1.0",
