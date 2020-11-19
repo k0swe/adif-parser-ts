@@ -39,4 +39,7 @@ jobs:
         run: npm publish
 
       - name: Create Release
-        run: echo "This will soon create a release, ${{ steps.bump_version.outputs.version }}"
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ steps.bump_version.outputs.version }}
+          release_name: ${{ steps.bump_version.outputs.version }}
