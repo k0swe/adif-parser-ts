@@ -1,9 +1,12 @@
 name: Publish
 
 on:
-  push:
-    tags:
-      - 'v*'
+  workflow_dispatch:
+    inputs:
+      releaseType:
+        description: 'Release Type'
+        required: true
+        default: 'patch'
 
 jobs:
   publish:
@@ -18,6 +21,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Bump version
+        id: bump_version
+        run: |
+          echo "##[set-output name=version;]$(npm version ${{ github.event.inputs.releaseType }} -m 'Bump version to %s')"
+          git push && git push --tags
+
       - name: Test & Build
         run: |
           npm install
@@ -26,3 +35,6 @@ jobs:
 
       - name: Publish
         run: npm publish
+
+      - name: Create Release
+        run: echo "This will soon create a release, ${{ steps.bump_version.outputs.version }}"
