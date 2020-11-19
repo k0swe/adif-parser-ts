@@ -24,6 +24,8 @@ jobs:
       - name: Bump version
         id: bump_version
         run: |
+          git config --global user.name ${GITHUB_ACTOR}
+          git config --global user.email ${GITHUB_ACTOR}@actions.github.com
           echo "##[set-output name=version;]$(npm version ${{ github.event.inputs.releaseType }} -m 'Bump version to %s')"
           git push && git push --tags
 
