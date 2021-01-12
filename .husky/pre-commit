@@ -2,6 +2,6 @@
 . "$(dirname $0)/_/husky.sh"
 
 # Make sure any changed source is pretty-fied
-STAGED=`git diff --name-only --staged`
+STAGED=`git diff --name-only --staged --diff-filter d`
 prettier --write {src,test}/**/*.ts
 git add $STAGED
