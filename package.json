@@ -67,7 +67,7 @@
   },
   "devDependencies": {
     "@types/jest": "26.0.20",
-    "@types/node": "10.17.52",
+    "@types/node": "10.17.54",
     "coveralls": "3.1.0",
     "cross-env": "7.0.3",
     "husky": "5.0.9",
