@@ -3,5 +3,5 @@
 
 # Make sure any changed source is pretty-fied
 STAGED=`git diff --name-only --staged --diff-filter d`
-prettier --write {src,test}/**/*.ts
+npx prettier --write {src,test}/**/*.ts
 git add $STAGED
