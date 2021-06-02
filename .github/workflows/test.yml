@@ -27,3 +27,5 @@ jobs:
         run: |
           npm install
           npm run test:prod
+          npm run build
+
