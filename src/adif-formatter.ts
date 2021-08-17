@@ -17,7 +17,7 @@ export class AdifFormatter {
     // From just a moment of research, string concatenation should have OK
     // performance. Maybe do testing and reconsider.
     let buffer = '';
-    if (this.obj.header != null) {
+    if (this.obj.header !== undefined) {
       buffer += this.obj.header.text + '\n';
       const restOfHeader = this.obj.header;
       delete restOfHeader.text;
