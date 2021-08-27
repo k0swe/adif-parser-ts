@@ -13,6 +13,10 @@ jobs:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
+      - name: Extract version tag
+        id: vars
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.4.0
 
@@ -31,5 +35,5 @@ jobs:
       - name: Create Release
         uses: actions/create-release@v1
         with:
-          tag_name: ${{ steps.bump_version.outputs.version }}
-          release_name: ${{ steps.bump_version.outputs.version }}
+          tag_name: ${{ steps.vars.outputs.tag }}
+          release_name: ${{ steps.vars.outputs.tag }}
