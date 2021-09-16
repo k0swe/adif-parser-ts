@@ -28,7 +28,7 @@
   "scripts": {
     "postinstall": "husky install",
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
-    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --theme minimal src",
+    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --entryPointStrategy expand --out docs src",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "test:prod": "npm run lint && npm run test -- --no-cache",
