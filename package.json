@@ -74,7 +74,7 @@
     "husky": "7.0.4",
     "jest": "27.4.5",
     "jest-config": "27.4.5",
-    "lint-staged": "12.1.4",
+    "lint-staged": "12.1.5",
     "lodash.camelcase": "4.3.0",
     "pinst": "2.1.6",
     "prettier": "2.5.1",
