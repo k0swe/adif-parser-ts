@@ -1,6 +1,6 @@
 {
   "name": "adif-parser-ts",
-  "version": "0.4.17",
+  "version": "0.4.18",
   "description": "An amateur radio log data ADIF parser in Typescript and Javascript",
   "keywords": [
     "amateur radio",
