@@ -1,14 +1,5 @@
 name: Publish
-on:
-  workflow_dispatch:
-    inputs:
-      bump_type:
-        type: choice
-        description: Bump type (in absence of Angular-style commit messages)
-        options:
-        - patch
-        - minor
-        - major
+on: workflow_dispatch
 
 jobs:
   publish:
@@ -38,12 +29,10 @@ jobs:
           npm run test:prod
           npm run build
 
-      - name: Bump version and push tag
-        id: tag_version
-        uses: mathieudutour/github-tag-action@v6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          default_bump: ${{ github.event.inputs.bump_type }}
+      - name:  Version Bump
+        uses:  phips28/gh-action-bump-version@v9.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish
         run: npm publish
