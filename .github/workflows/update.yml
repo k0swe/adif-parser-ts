@@ -1,0 +1,40 @@
+name: npm update
+on: workflow_dispatch
+
+jobs:
+  npm-update:
+    name: npm update
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.5.1
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cache node deps
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-deps
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: npm update
+        run: |
+          npm install
+          npm update
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: '${{ secrets.GH_PAT }}'
+          add-paths: 'package*.json'
+          commit-message: npm update
+          title: npm update
+          branch: npm-update
+          author: 'github-actions <github-actions@github.com>'

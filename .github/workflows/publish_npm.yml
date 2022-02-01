@@ -1,9 +1,14 @@
 name: Publish
-
 on:
-  push:
-    tags:
-      - v[0-9]*
+  workflow_dispatch:
+    inputs:
+      bump_type:
+        type: choice
+        description: Bump type (in absence of Angular-style commit messages)
+        options:
+        - patch
+        - minor
+        - major
 
 jobs:
   publish:
@@ -13,15 +18,19 @@ jobs:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
-      - name: Extract version tag
-        id: vars
-        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
-
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.5.1
 
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Cache node deps
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-deps
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Test & Build
         run: |
@@ -29,11 +38,19 @@ jobs:
           npm run test:prod
           npm run build
 
+      - name: Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          default_bump: ${{ github.event.inputs.bump_type }}
+
       - name: Publish
         run: npm publish
 
       - name: Create Release
         uses: actions/create-release@v1
         with:
-          tag_name: ${{ steps.vars.outputs.tag }}
-          release_name: ${{ steps.vars.outputs.tag }}
+          tag_name: ${{ steps.tag_version.outputs.new_tag }}
+          release_name: ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }}
