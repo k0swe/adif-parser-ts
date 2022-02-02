@@ -6,7 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
       - name: Setup Node.js environment
@@ -29,14 +28,23 @@ jobs:
           npm run test:prod
           npm run build
 
-      - name:  Version Bump
+      - name: Version Bump
         id: version-bump
-        uses:  phips28/gh-action-bump-version@v9.0.1
+        uses: phips28/gh-action-bump-version@v9.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag-prefix: 'v'
+
+      - name: Rebuild
+        run: |
+          npm install
+          npm run build
 
       - name: Publish
-        run: npm publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
 
       - name: Create Release
         uses: actions/create-release@v1
