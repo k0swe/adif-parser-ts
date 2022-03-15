@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v3.0.0
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Cache node deps
         uses: actions/cache@v2
