@@ -16,14 +16,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Cache node deps
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-deps
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-
       - name: Test & Build
         run: |
           npm install
@@ -47,6 +39,7 @@ jobs:
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
+          package: package.json
 
       - name: Create Release
         uses: actions/create-release@v1
