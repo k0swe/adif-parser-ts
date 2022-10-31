@@ -1,0 +1,44 @@
+{
+  "header": {
+    "text": "ARRL Logbook of the World Status Report\nGenerated at 2021-07-06 14:12:10\nfor ki2d\nQuery:\n     OWNCALL: KI2D\n    QSL ONLY: YES\nQSL RX SINCE: 2020-01-01 00:00:00 (user supplied value)",
+    "programid": "LoTW",
+    "app_lotw_lastqsl": "2021-07-06 14:01:37",
+    "app_lotw_numrec": "2073"
+  },
+  "records": [
+    {
+      "app_lotw_owncall": "KI2D",
+      "station_callsign": "KI2D",
+      "my_dxcc": "291",
+      "my_country": "UNITED STATES OF AMERICA",
+      "app_lotw_my_dxcc_entity_status": "Current",
+      "my_gridsquare": "FN21RQ",
+      "my_state": "NY",
+      "my_cnty": "NY,SULLIVAN",
+      "my_cq_zone": "05",
+      "my_itu_zone": "08",
+      "call": "NR0Q",
+      "band": "30M",
+      "freq": "10.13790",
+      "mode": "FT8",
+      "app_lotw_modegroup": "DATA",
+      "qso_date": "20210615",
+      "app_lotw_rxqso": "2021-06-15 15:21:12",
+      "time_on": "111700",
+      "app_lotw_qso_timestamp": "2021-06-15T11:17:00Z",
+      "qsl_rcvd": "Y",
+      "qslrdate": "20210615",
+      "app_lotw_rxqsl": "2021-06-15 15:21:12",
+      "dxcc": "291",
+      "country": "UNITED STATES OF AMERICA",
+      "app_lotw_dxcc_entity_status": "Current",
+      "pfx": "NR0",
+      "app_lotw_2xqsl": "Y",
+      "gridsquare": "EM39",
+      "state": "MO",
+      "cnty": "MO,MACON",
+      "cqz": "04",
+      "ituz": "07"
+    }
+  ]
+}

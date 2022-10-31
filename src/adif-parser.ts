@@ -80,8 +80,17 @@ export class AdifParser {
       this.cursor = endTag + 1;
       return true;
     } else if (tagParts.length < 2) {
+      if (this.adi.substring(startTag + 1, endTag) === 'APP_LoTW_EOF') {
+        this.cursor = endTag + 1;
+        return true;
+      }
+
       throw new Error(
-        'Encountered field tag without enough parts near char ' + startTag
+        'Encountered field tag without enough parts near char ' +
+          startTag +
+          ': ' +
+          this.adi.substring(startTag + 1, startTag + 80) +
+          '\n'
       );
     }
     const fieldName = tagParts[0].toLowerCase();

@@ -119,6 +119,17 @@ describe('AdifParser', () => {
     });
     expect(AdifParser.parseAdi(fileContent)).toEqual(JSON.parse(expected));
   });
+
+  it('can parse an ADI from Logbook of the World', () => {
+    const fileContent = fs.readFileSync('test/data/lotw.adi', {
+      encoding: 'ascii',
+    });
+    const expected = fs.readFileSync('test/data/lotw.json', {
+      encoding: 'utf8',
+    });
+    console.log(JSON.stringify(AdifParser.parseAdi(fileContent)));
+    //expect(AdifParser.parseAdi(fileContent)).toEqual(JSON.parse(expected));
+  });
 });
 
 describe('AdifFormatter', () => {
