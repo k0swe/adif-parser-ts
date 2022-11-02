@@ -128,7 +128,7 @@ describe('AdifParser', () => {
       encoding: 'utf8',
     });
     console.log(JSON.stringify(AdifParser.parseAdi(fileContent)));
-    //expect(AdifParser.parseAdi(fileContent)).toEqual(JSON.parse(expected));
+    expect(AdifParser.parseAdi(fileContent)).toEqual(JSON.parse(expected));
   });
 });
 
