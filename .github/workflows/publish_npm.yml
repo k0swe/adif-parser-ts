@@ -24,7 +24,7 @@ jobs:
 
       - name: Version Bump
         id: version-bump
-        uses: phips28/gh-action-bump-version@v9.0.41
+        uses: phips28/gh-action-bump-version@v9.0.42
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
