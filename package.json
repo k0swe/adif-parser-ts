@@ -67,13 +67,13 @@
     "singleQuote": true
   },
   "devDependencies": {
-    "@types/jest": "29.2.6",
+    "@types/jest": "29.4.0",
     "@types/node": "17.0.45",
     "coveralls": "3.1.1",
     "cross-env": "7.0.3",
     "husky": "8.0.3",
-    "jest": "29.4.0",
-    "jest-config": "29.4.0",
+    "jest": "29.4.1",
+    "jest-config": "29.4.1",
     "lint-staged": "13.1.0",
     "lodash.camelcase": "4.3.0",
     "pinst": "3.0.0",
