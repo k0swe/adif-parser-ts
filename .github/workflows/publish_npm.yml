@@ -1,5 +1,11 @@
 name: Publish
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      newversion:
+        description: 'Semantic Version Bump Type (major minor patch)'
+        required: true
+        default: 'patch'
 
 jobs:
   publish:
@@ -22,27 +28,19 @@ jobs:
           npm run test:prod
           npm run build
 
-      - name: Version Bump
-        id: version-bump
-        uses: phips28/gh-action-bump-version@v9.1.6
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+      - name: Version and publish to npm
+        id: npm-bump
+        uses: bcomnes/npm-bump@v2
         with:
-          tag-prefix: 'v'
-
-      - name: Rebuild
-        run: |
-          npm install
-          npm run build
-
-      - name: Publish
-        uses: JS-DevTools/npm-publish@v2
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: package.json
+          git_email: ${{ github.actor }}@users.noreply.github.com
+          git_username: ${{ github.actor }}
+          newversion: ${{ github.event.inputs.newversion }}
+          push_version_commit: true 
+          github_token: ${{ secrets.GH_PAT }} 
+          npm_token: ${{ secrets.NPM_TOKEN }}
 
       - name: Create Release
         uses: actions/create-release@v1
         with:
-          tag_name: ${{ steps.version-bump.outputs.newTag }}
-          release_name: ${{ steps.version-bump.outputs.newTag }}
+          tag_name: ${{ steps.npm-bump.outputs.release_tag }}
+          release_name: ${{ steps.npm-bump.outputs.release_tag }}
