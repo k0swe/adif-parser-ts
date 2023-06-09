@@ -38,8 +38,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         with:
-          git_email: ${{ github.actor }}@users.noreply.github.com
-          git_username: ${{ github.actor }}
+          git_email: xylo04-bot@users.noreply.github.com
+          git_username: xylo04-bot
           newversion: ${{ github.event.inputs.newversion }}
           push_version_commit: true 
           github_token: ${{ secrets.GH_PAT }} 
