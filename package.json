@@ -68,7 +68,7 @@
   },
   "devDependencies": {
     "@types/jest": "29.5.2",
-    "@types/node": "18.16.18",
+    "@types/node": "18.16.19",
     "coveralls": "3.1.1",
     "cross-env": "7.0.3",
     "husky": "8.0.3",
