@@ -90,7 +90,7 @@ export class AdifParser {
           startTag +
           ': ' +
           this.adi.substring(startTag + 1, startTag + 80) +
-          '\n'
+          '\n',
       );
     }
     const fieldName = tagParts[0].toLowerCase();
