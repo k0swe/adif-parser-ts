@@ -5,7 +5,7 @@ describe('AdifParser', () => {
   it('can parse a basic ADI', () => {
     expect(
       AdifParser.parseAdi(`<CALL:6>J72IMS <QSO_DATE:8>20200328 <eor>
-<CALL:4>KK9A <QSO_DATE:8>20200329 <eor>`)
+<CALL:4>KK9A <QSO_DATE:8>20200329 <eor>`),
     ).toEqual({
       records: [
         {
@@ -32,7 +32,7 @@ describe('AdifParser', () => {
 <USERDEF3:15>ShoeSize,{5:20}
 <EOH>
 <CALL:6>J72IMS <QSO_DATE:8>20200328 <eor>
-<CALL:4>KK9A <QSO_DATE:8>20200329 <eor>`)
+<CALL:4>KK9A <QSO_DATE:8>20200329 <eor>`),
     ).toEqual({
       header: {
         text: 'Generated on 2011-11-22 at 02:15:23Z for WN4AZY',
@@ -63,13 +63,13 @@ describe('AdifParser', () => {
 
   it('can throw for fields with no width', () => {
     expect(() =>
-      AdifParser.parseAdi(`<CALL:6>J72IMS <QSO_DATE>20200328`)
+      AdifParser.parseAdi(`<CALL:6>J72IMS <QSO_DATE>20200328`),
     ).toThrowError('Encountered field tag without enough parts near char 15');
   });
 
   it('can ignore type indicators', () => {
     expect(
-      AdifParser.parseAdi(`<CALL:6:s>J72IMS <QSO_DATE:8:d>20200328`)
+      AdifParser.parseAdi(`<CALL:6:s>J72IMS <QSO_DATE:8:d>20200328`),
     ).toEqual({
       records: [
         {
@@ -146,7 +146,7 @@ describe('AdifFormatter', () => {
             qso_date: '20200329',
           },
         ],
-      })
+      }),
     ).toEqual(`<call:6>J72IMS
 <qso_date:8>20200328
 <eor>
@@ -178,7 +178,7 @@ describe('AdifFormatter', () => {
             qso_date: '20200329',
           },
         ],
-      })
+      }),
     ).toEqual(`Generated on 2011-11-22 at 02:15:23Z for WN4AZY
 <adif_ver:5>3.0.5
 <programid:7>MonoLog
@@ -201,7 +201,7 @@ describe('AdifFormatter', () => {
     expect(AdifFormatter.formatAdi({})).toEqual('');
     expect(AdifFormatter.formatAdi({ records: [] })).toEqual('');
     expect(AdifFormatter.formatAdi({ header: { text: '' } })).toEqual(
-      '<eoh>\n'
+      '<eoh>\n',
     );
   });
 
@@ -213,7 +213,7 @@ describe('AdifFormatter', () => {
       encoding: 'ascii',
     });
     expect(AdifFormatter.formatAdi(JSON.parse(jsonContent))).toEqual(
-      adiContent
+      adiContent,
     );
   });
 
@@ -225,7 +225,7 @@ describe('AdifFormatter', () => {
       encoding: 'ascii',
     });
     expect(AdifFormatter.formatAdi(JSON.parse(jsonContent))).toEqual(
-      adiContent
+      adiContent,
     );
   });
 
@@ -237,7 +237,7 @@ describe('AdifFormatter', () => {
       encoding: 'ascii',
     });
     expect(AdifFormatter.formatAdi(JSON.parse(jsonContent))).toEqual(
-      adiContent
+      adiContent,
     );
   });
 
@@ -249,7 +249,7 @@ describe('AdifFormatter', () => {
       encoding: 'ascii',
     });
     expect(AdifFormatter.formatAdi(JSON.parse(jsonContent))).toEqual(
-      adiContent
+      adiContent,
     );
   });
 });
