@@ -1,8 +1,0 @@
-#!/bin/bash
-. "$(dirname "$0")/_/husky.sh"
-
-# Make sure any changed source is pretty-fied
-STAGED=$(git diff --name-only --staged --diff-filter d)
-npx prettier --write {src,test}/**/*.ts
-# shellcheck disable=SC2086
-git add $STAGED
