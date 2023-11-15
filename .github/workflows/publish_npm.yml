@@ -1,5 +1,14 @@
 name: Publish
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      version-type:
+        type: choice
+        description: Which version type to bump
+        options:
+          - patch
+          - minor
+          - major
 
 jobs:
   publish:
@@ -29,6 +38,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag-prefix: 'v'
+          # Can't use commit wording because manually dispatched workflows don't contain the commits
+          version-type: ${{ github.event.inputs.version-type }}
 
       - name: Rebuild
         run: |
