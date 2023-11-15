@@ -20,7 +20,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.0.0
         with:
-          node-version: '16'
+          node-version: 'lts/*'
 
       - name: Checkout
         uses: actions/checkout@v4
