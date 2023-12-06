@@ -72,7 +72,7 @@
     "jest-config": "29.7.0",
     "lint-staged": "15.2.0",
     "lodash.camelcase": "4.3.0",
-    "prettier": "3.0.3",
+    "prettier": "3.1.0",
     "rollup": "2.79.1",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-json": "4.0.0",
