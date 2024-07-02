@@ -85,6 +85,6 @@
     "tslint-config-prettier": "1.18.0",
     "tslint-config-standard": "9.0.0",
     "typedoc": "0.26.3",
-    "typescript": "5.5.2"
+    "typescript": "5.5.3"
   }
 }
