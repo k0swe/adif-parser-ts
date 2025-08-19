@@ -23,7 +23,7 @@ jobs:
           node-version: 'lts/*'
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Test & Build
         run: |
