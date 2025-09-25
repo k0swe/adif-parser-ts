@@ -64,7 +64,7 @@ describe('AdifParser', () => {
   it('can throw for fields with no width', () => {
     expect(() =>
       AdifParser.parseAdi(`<CALL:6>J72IMS <QSO_DATE>20200328`),
-    ).toThrowError('Encountered field tag without enough parts near char 15');
+    ).toThrow('Encountered field tag without enough parts near char 15');
   });
 
   it('can ignore type indicators', () => {
