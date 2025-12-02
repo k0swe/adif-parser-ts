@@ -65,7 +65,7 @@
   },
   "devDependencies": {
     "@types/jest": "30.0.0",
-    "@types/node": "20.19.24",
+    "@types/node": "20.19.25",
     "coveralls": "3.1.1",
     "cross-env": "10.1.0",
     "jest": "30.1.3",
