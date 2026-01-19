@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Cache node deps
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         env:
           cache-name: cache-node-deps
         with:
