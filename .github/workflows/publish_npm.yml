@@ -10,6 +10,10 @@ on:
           - minor
           - major
 
+permissions:
+  id-token: write  # Required for OIDC
+  contents: read
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -21,6 +25,7 @@ jobs:
         uses: actions/setup-node@v6.2.0
         with:
           node-version: 'lts/*'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Checkout
         uses: actions/checkout@v6
@@ -47,10 +52,7 @@ jobs:
           npm run build
 
       - name: Publish
-        uses: JS-DevTools/npm-publish@v3
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: package.json
+        run: npm publish
 
       - name: Create Release
         uses: actions/create-release@v1
