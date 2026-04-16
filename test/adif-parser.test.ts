@@ -61,6 +61,22 @@ describe('AdifParser', () => {
     expect(AdifParser.parseAdi(` <eoh>`)).toEqual({ header: { text: '' } });
   });
 
+  it('can detect a header with no plain-text preamble', () => {
+    expect(
+      AdifParser.parseAdi(`<adif_ver:5>3.1.0<eoh><call:4>KK9A<eor>`),
+    ).toEqual({
+      header: {
+        text: '',
+        adif_ver: '3.1.0',
+      },
+      records: [
+        {
+          call: 'KK9A',
+        },
+      ],
+    });
+  });
+
   it('can throw for fields with no width', () => {
     expect(() =>
       AdifParser.parseAdi(`<CALL:6>J72IMS <QSO_DATE>20200328`),
