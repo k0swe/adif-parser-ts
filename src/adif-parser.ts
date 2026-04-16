@@ -22,7 +22,7 @@ export class AdifParser {
     }
 
     // Header
-    if (this.adi[0] !== '<') {
+    if (this.hasHeader()) {
       const header: { [field: string]: string } = {};
       header['text'] = this.parseHeaderText();
       while (this.cursor < this.adi.length) {
@@ -46,6 +46,21 @@ export class AdifParser {
       parsed.records = records;
     }
     return parsed;
+  }
+
+  private hasHeader(): boolean {
+    if (this.adi[0] !== '<') {
+      return true;
+    }
+
+    const lowercaseAdi = this.adi.toLowerCase();
+    const endOfHeaderIndex = lowercaseAdi.indexOf('<eoh>');
+    if (endOfHeaderIndex === -1) {
+      return false;
+    }
+
+    const endOfRecordIndex = lowercaseAdi.indexOf('<eor>');
+    return endOfRecordIndex === -1 || endOfHeaderIndex < endOfRecordIndex;
   }
 
   private parseHeaderText(): string {
