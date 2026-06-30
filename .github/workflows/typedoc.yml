@@ -1,0 +1,43 @@
+name: TypeDoc
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  typedoc:
+    name: Regenerate TypeDoc
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6.4.0
+        with:
+          node-version: '24.x'
+
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Cache node deps
+        uses: actions/cache@v6
+        env:
+          cache-name: cache-node-deps
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate docs
+        run: npx typedoc --entryPointStrategy expand --out docs src
+
+      - name: Commit docs
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: regenerate TypeDoc docs'
+          file_pattern: docs/
