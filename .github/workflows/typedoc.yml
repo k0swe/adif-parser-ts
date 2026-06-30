@@ -6,12 +6,17 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   typedoc:
     name: Publish TypeDoc
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Setup Node.js environment
@@ -33,13 +38,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
       - name: Generate docs
         run: npx typedoc --entryPointStrategy expand --out docs src
 
-      - name: Publish docs to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: docs
-          commit_message: 'chore: regenerate TypeDoc docs'
+          path: docs
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
