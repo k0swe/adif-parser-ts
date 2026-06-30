@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   typedoc:
-    name: Regenerate TypeDoc
+    name: Publish TypeDoc
     runs-on: ubuntu-latest
 
     steps:
@@ -36,8 +36,10 @@ jobs:
       - name: Generate docs
         run: npx typedoc --entryPointStrategy expand --out docs src
 
-      - name: Commit docs
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Publish docs to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: docs
           commit_message: 'chore: regenerate TypeDoc docs'
-          file_pattern: docs/
