@@ -25,7 +25,7 @@ jobs:
           node-version: '24.x'
 
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Cache node deps
         uses: actions/cache@v6
