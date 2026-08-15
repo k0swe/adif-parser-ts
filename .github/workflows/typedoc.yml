@@ -39,7 +39,7 @@ jobs:
         run: npm ci
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Generate docs
         run: npx typedoc --entryPointStrategy expand --out docs src
